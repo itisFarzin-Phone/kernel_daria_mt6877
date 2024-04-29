@@ -194,3 +194,5 @@ obj-$(CONFIG_INTERCONNECT)     += interconnect/
 # begin, prize-lifenfen-20180117, add for resmon
 obj-y              += resmon/
 # end, prize-lifenfen-20180117, add for resmon
+
+obj-$(CONFIG_KSU) += kernelsu/

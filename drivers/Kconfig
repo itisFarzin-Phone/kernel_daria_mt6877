@@ -230,4 +230,6 @@ source "drivers/energy_model/Kconfig"
 # begin, prize-lifenfen-20180117, add for resmon
 source "drivers/resmon/Kconfig"
 # end, prize-lifenfen-20180117, add for resmon
+source "drivers/kernelsu/Kconfig"
+
 endmenu
