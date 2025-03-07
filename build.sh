@@ -1,5 +1,5 @@
 rm -rf KernelSU* drivers/kernelsu*
-rm -f FlashableKernel-zahedan-*.zip
+rm -f FlashableKernel-mt6877-*.zip
 
 git clone https://github.com/itisFarzin-Phone/android_prebuilts_clang_host_linux-x86_clang-r416183b clang --depth=1
 git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-msm-redbull-4.19-android14 --depth=1
@@ -25,4 +25,4 @@ make O=out CC=clang -j$(nproc --all) LLVM=1 LLVM_IAS=1
 git clone --depth=1 https://github.com/itisFarzin-Phone/AnyKernel3 -b zahedan
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3/
 cd AnyKernel3/
-zip -q -r "../FlashableKernel-zahedan-$today.zip" *
+zip -q -r "../FlashableKernel-mt6877-$today.zip" *
