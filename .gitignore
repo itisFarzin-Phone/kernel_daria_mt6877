@@ -138,6 +138,5 @@ all.config
 out
 clang
 aarch64-linux-android-4.9
-arm-linux-androideabi-4.9
 AnyKernel3
-FlashableKernel-*.zip
+/*.zip
