@@ -1686,66 +1686,66 @@ static const struct file_operations gf_fops = {
 /*-------------------------------------------------------------------------*/
 
 // prize baibo for chipid begin
-static int gf_get_chipid()
-{
-    struct device_node *node = NULL;
-    struct platform_device *pdev = NULL;
-    int fpid = 0;
-    int ret = -1;
-#if defined(CONFIG_PRIZE_FP_USE_VFP)
-    struct regulator *vdd_reg = NULL;
-#endif
+// static int gf_get_chipid()
+// {
+//     struct device_node *node = NULL;
+//     struct platform_device *pdev = NULL;
+//     int fpid = 0;
+//     int ret = -1;
+// #if defined(CONFIG_PRIZE_FP_USE_VFP)
+//     struct regulator *vdd_reg = NULL;
+// #endif
 
-    node = of_find_compatible_node(NULL, NULL, "mediatek,goodix-fp");
-    if (node) {
-        pdev = of_find_device_by_node(node);
+//     node = of_find_compatible_node(NULL, NULL, "mediatek,goodix-fp");
+//     if (node) {
+//         pdev = of_find_device_by_node(node);
 
-#if defined(CONFIG_PRIZE_FP_USE_VFP)
-    	vdd_reg = regulator_get(&pdev->dev, "VFP");
-    	if (IS_ERR(vdd_reg)) {
-        	ret = PTR_ERR(vdd_reg);
-        	pr_err("%s: Regulator get failed vdd err = %d\n",__func__,ret);
-        	goto err1;
-    	}
+// #if defined(CONFIG_PRIZE_FP_USE_VFP)
+//     	vdd_reg = regulator_get(&pdev->dev, "VFP");
+//     	if (IS_ERR(vdd_reg)) {
+//         	ret = PTR_ERR(vdd_reg);
+//         	pr_err("%s: Regulator get failed vdd err = %d\n",__func__,ret);
+//         	goto err1;
+//     	}
 
-// prize durunshen for G3S set voltage  begin
-    	regulator_set_voltage(vdd_reg, 3300000, 3300000);
-// prize durunshen for G3S set voltage  end
+// // prize durunshen for G3S set voltage  begin
+//     	regulator_set_voltage(vdd_reg, 3300000, 3300000);
+// // prize durunshen for G3S set voltage  end
 
-    	regulator_enable(vdd_reg);
-#endif
+//     	regulator_enable(vdd_reg);
+// #endif
 
-        msleep(10);
+//         msleep(10);
 
-        fpid = of_get_named_gpio(pdev->dev.of_node, "fpid-gpio", 0);
-        if (fpid < 0) {
-            gf_debug(ERR_LOG, "%s fpid-gpios not provide\n", __func__);
-            goto err2;
-        }
+//         fpid = of_get_named_gpio(pdev->dev.of_node, "fpid-gpio", 0);
+//         if (fpid < 0) {
+//             gf_debug(ERR_LOG, "%s fpid-gpios not provide\n", __func__);
+//             goto err2;
+//         }
 
-        gf_debug(ERR_LOG, "%s fpid-gpios %d\n", __func__, fpid);
-        devm_gpio_request_one(&pdev->dev, fpid, GPIOF_DIR_IN, "goodix fpid");
+//         gf_debug(ERR_LOG, "%s fpid-gpios %d\n", __func__, fpid);
+//         devm_gpio_request_one(&pdev->dev, fpid, GPIOF_DIR_IN, "goodix fpid");
 
-        if(gpio_get_value(fpid)){
-            gf_debug(DEBUG_LOG, "%s goodix finger module\n", __func__);
-            ret = 1;
-        } else {
-            gf_debug(DEBUG_LOG, "%s focaltek finger module\n", __func__);
-            ret = 0;
-        }
-    } else {
-        gf_debug(ERR_LOG, "%s device node mediatek,goodix-fp is null\n", __func__);
-        goto err1;
-    }
+//         if(gpio_get_value(fpid)){
+//             gf_debug(DEBUG_LOG, "%s goodix finger module\n", __func__);
+//             ret = 1;
+//         } else {
+//             gf_debug(DEBUG_LOG, "%s focaltek finger module\n", __func__);
+//             ret = 0;
+//         }
+//     } else {
+//         gf_debug(ERR_LOG, "%s device node mediatek,goodix-fp is null\n", __func__);
+//         goto err1;
+//     }
 
-err2:
-#if defined(CONFIG_PRIZE_FP_USE_VFP)
-    regulator_disable(vdd_reg);
-    regulator_put(vdd_reg);
-#endif
-err1:
-    return ret;
-}
+// err2:
+// #if defined(CONFIG_PRIZE_FP_USE_VFP)
+//     regulator_disable(vdd_reg);
+//     regulator_put(vdd_reg);
+// #endif
+// err1:
+//     return ret;
+// }
 // prize baibo for chipid end
 
 static int gf_probe(struct spi_device *spi)
