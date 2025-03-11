@@ -7,6 +7,6 @@ ifeq ($(strip $(CONFIG_BUILD_ARM64_DTB_OVERLAY_IMAGE)), y)
 dtb-y += $(addsuffix .dtbo, $(notdir $(subst $\",,$(CONFIG_BUILD_ARM64_DTB_OVERLAY_IMAGE_NAMES))))
 endif
 
-always          := $(dtb-y) $(dtbo-y)
+always          := $(dtb-y)
 subdir-y        := $(dts-dirs)
-clean-files     := *.dtb *.dtbo
+clean-files     := *.dtb
