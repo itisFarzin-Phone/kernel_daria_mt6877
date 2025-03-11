@@ -174,7 +174,7 @@ obj-$(CONFIG_TOUCHSCREEN_MTK_ILI9882Q_TXD)	+= ILITEK_V3.0.9.0/
 obj-$(CONFIG_TOUCHSCREEN_MTK_ST7123)	+= sitronix_ts_v43.00.230509/
 #dvr add by wangwei1 ST7123 20230425 end 
 
-obj-$(CONFIG_TOUCHSCREEN_NT36xxx_HOSTDL_SPI) +=  NVT_Touch_HostDL/
+# obj-$(CONFIG_TOUCHSCREEN_NT36xxx_HOSTDL_SPI) +=  NVT_Touch_HostDL/
 
 #prize add by lipengpeng 20220418 start 
 obj-$(CONFIG_TOUCHSCREEN_MTK_ILITEK)    +=  ILITEK_V2/
