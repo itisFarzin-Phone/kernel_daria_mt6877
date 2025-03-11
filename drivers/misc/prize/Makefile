@@ -1,7 +1,7 @@
 obj-$(CONFIG_PRIZE_LCD_BIAS) += lcd_bias/
-obj-$(CONFIG_PRIZE_HALL) += hall/
-obj-$(CONFIG_PRIZE_TORCH) += torch/
-obj-$(CONFIG_PRIZE_BAROMETER_H5804) += h5804/
+# obj-$(CONFIG_PRIZE_HALL) += hall/
+# obj-$(CONFIG_PRIZE_TORCH) += torch/
+# obj-$(CONFIG_PRIZE_BAROMETER_H5804) += h5804/
 obj-$(CONFIG_PRIZE_FM_ANT_SWITCH) += fm_ant/
 obj-$(CONFIG_PRIZE_SCR_RTL) += scr_rtl/
 
@@ -31,7 +31,7 @@ obj-$(CONFIG_PRIZE_LEDS_AW2016) += aw2016a/
 obj-$(CONFIG_PRIZE_IR_CAMERA_MOTOR) += ir_camera_motor/
 #prize added by chenjiaxi, ir camera motor drv, 20201117-end
 
-obj-$(CONFIG_PRIZE_AIR_QUALITY) += air_quality/
+# obj-$(CONFIG_PRIZE_AIR_QUALITY) += air_quality/
 obj-$(CONFIG_PRIZE_NEW_EXERGEN) += exergen/
 
 #prize-add prize-zhaopengge-20210630-start

@@ -585,7 +585,7 @@ obj-$(CONFIG_SND_SOC_AW87XXX)	+= aw87xxx/
 #prize add by lipengpeng 20210330 start 
 obj-$(CONFIG_SND_SMARTPA_AW881XX_V2)    += aw881xx_v2/
 obj-$(CONFIG_SND_SMARTPA_AW881XX)    += aw881xx/
-obj-$(CONFIG_SND_SOC_AW8898)    += aw8898/
+# obj-$(CONFIG_SND_SOC_AW8898)    += aw8898/
 obj-$(CONFIG_SND_SMARTPA_AW88194A_NEW)    += aw88194a/
 #prize add by lipengpeng 20210330 end 
 
