@@ -1,5 +1,4 @@
-rm -rf AnyKernel3 KernelSU* drivers/kernelsu*
-rm -f ./*.zip
+rm -rf AnyKernel3 KernelSU* drivers/kernelsu* *.zip
 
 git clone https://github.com/itisFarzin-Phone/android_prebuilts_clang_host_linux-x86_clang-r416183b clang --depth=1
 git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android-msm-redbull-4.19-android14 --depth=1
@@ -24,5 +23,17 @@ make O=out CC=clang -j$(nproc --all) LLVM=1 LLVM_IAS=1
 
 git clone --depth=1 https://github.com/itisFarzin-Phone/AnyKernel3 -b zahedan
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3/
+
+if [ "$1" = "--vendor_dlkm" ]; then
+    if [ -f /mnt/Android/LineageOS/out/target/product/zahedan/vendor_dlkm.img ]; then
+        cp /mnt/Android/LineageOS/out/target/product/zahedan/vendor_dlkm.img AnyKernel3/
+    elif [ -f vendor_dlkm.img ]; then
+        cp vendor_dlkm.img AnyKernel3/
+    else
+        echo "ERROR: vendor_dlkm.img doesn't exist!"
+        exit 1
+    fi
+fi
+
 cd AnyKernel3/
-zip -q -r "../$zip_name" *
+zip -r9 "../$zip_name" * -x .git README.md *placeholder
