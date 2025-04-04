@@ -1,6 +1,10 @@
 rm -rf AnyKernel3 KernelSU* drivers/kernelsu* *.zip
 
-git clone https://github.com/itisFarzin-Phone/android_prebuilts_clang_host_linux-x86_clang-r416183b clang --depth=1
+if [ ! -d clang ]; then
+    wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/tags/android-15.0.0_r15/clang-r536225.tar.gz -O clang.tar.gz
+    mkdir clang
+    tar -xf clang.tar.gz -C clang
+fi
 
 export PATH="$(pwd)/clang/bin:$PATH"
 export LD_LIBRARY_PATH="$(pwd)/clang/lib64:$LD_LIBRARY_PATH"
