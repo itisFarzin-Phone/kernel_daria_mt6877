@@ -1,4 +1,4 @@
-rm -rf KernelSU* drivers/kernelsu*
+rm -rf AnyKernel3 KernelSU* drivers/kernelsu*
 rm -f ./*.zip
 
 git clone https://github.com/itisFarzin-Phone/android_prebuilts_clang_host_linux-x86_clang-r416183b clang --depth=1
