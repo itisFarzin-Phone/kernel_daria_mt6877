@@ -140,3 +140,4 @@ clang
 aarch64-linux-android-4.9
 AnyKernel3
 /*.zip
+vendor_dlkm.img
