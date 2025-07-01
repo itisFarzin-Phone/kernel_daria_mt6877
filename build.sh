@@ -18,7 +18,7 @@ zip_name="$(git rev-parse --abbrev-ref HEAD)-mt6877-$(date +'%Y%m%d').zip"
 
 curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next/kernel/setup.sh" | bash -
 
-make O=out CC=clang k6877v1_64_k419_defconfig LLVM=1 LLVM_IAS=1
+make O=out CC=clang clean mrproper k6877v1_64_k419_defconfig LLVM=1 LLVM_IAS=1
 make O=out CC=clang -j$(nproc --all) LLVM=1 LLVM_IAS=1
 
 git clone --depth=1 https://github.com/itisFarzin-Phone/AnyKernel3 -b zahedan
