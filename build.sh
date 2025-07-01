@@ -25,10 +25,10 @@ git clone --depth=1 https://github.com/itisFarzin-Phone/AnyKernel3 -b zahedan
 cp out/arch/arm64/boot/Image.gz-dtb AnyKernel3/
 
 if [ "$1" = "--vendor_dlkm" ]; then
-    if [ -f /mnt/Android/LineageOS/out/target/product/zahedan/vendor_dlkm.img ]; then
-        cp /mnt/Android/LineageOS/out/target/product/zahedan/vendor_dlkm.img AnyKernel3/
-    elif [ -f vendor_dlkm.img ]; then
+    if [ -f vendor_dlkm.img ]; then
         cp vendor_dlkm.img AnyKernel3/
+    elif [ -f /mnt/Android/LineageOS/out/target/product/zahedan/vendor_dlkm.img ]; then
+        cp /mnt/Android/LineageOS/out/target/product/zahedan/vendor_dlkm.img AnyKernel3/
     else
         echo "ERROR: vendor_dlkm.img doesn't exist!"
         exit 1
